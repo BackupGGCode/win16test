@@ -101,8 +101,10 @@ msg.obj : msg.c
 .c.obj :
 	$(CC) $(CFLAGS) $<
 
+# use grep to work around http://bugs.winehq.org/show_bug.cgi?id=9849
+# and avoid creating .ok file even if exit status is zero due to a wine bug
 .c.ok :
-	$(RUNTEST) $*.exe $(LOGFLAGS) && touch $@
+	$(RUNTEST) $*.exe $(LOGFLAGS) && ! grep ' [0-9]*[1-9] failures' *.log && touch $@
 
 # dependencies
 alloc.ok : alloc.exe

@@ -225,6 +225,7 @@ LONG WINAPI InterlockedIncrement(LONG * volatile dest)
 
 VOID WINAPI ExitProcess(DWORD rc)
 {
+    /* FIXME: _exit doesn't seem to obey exit status argument, see bug 9849? */
 	if(isLogged)
     	_exit((int)rc);
 	else
@@ -419,15 +420,15 @@ static int run_test( const char *name )
     current_test = test;
     test->func();
 
+    status = (failures + todo_failures < 255) ? failures + todo_failures : 255;
     if (winetest_debug)
     {
-        fprintf( stdout, "%s: %ld tests executed (%ld marked as todo, %ld %s), %ld skipped.\n",
+        fprintf( stdout, "%s: %ld tests executed (%ld marked as todo, %ld %s), %ld skipped, status %d.\n",
 				 test->name, successes + failures + todo_successes + todo_failures,
                  todo_successes, failures + todo_failures,
                  (failures + todo_failures != 1) ? "failures" : "failure",
-                 skipped );
+                 skipped, status );
     }
-    status = (failures + todo_failures < 255) ? failures + todo_failures : 255;
     return status;
 }
 
@@ -474,10 +475,7 @@ void main( int argc, char **argv )
 		/* only 1 test */
         if (winetest_testlist[0].name && !winetest_testlist[1].name){  
             exit_status = run_test( winetest_testlist[0].name );
-			if(!strcmp(argv[1], "--log"))	/* log option */
-				exit_process(exit_status);
-			else							/* console option */
-				exit_process(exit_status);
+			exit_process(exit_status);
 		}
         usage( argv[0] );
     }
