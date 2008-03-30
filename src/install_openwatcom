@@ -34,7 +34,7 @@ try() {
 }
 
 #Unattended AHK installation
-download "http://www.autohotkey.com/download/AutoHotkeyInstall.exe"
+download "http://www.autohotkey.com/download/AutoHotkey104706_Install.exe"
 try $WINE $WINETRICKS_CACHE/AutoHotkeyInstall.exe /S 
 
 #fetch openwatcom binary first
@@ -42,4 +42,4 @@ download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.7a.exe"
 #save it to "Program Files"
 try cp $WINETRICKS_CACHE/open-watcom-c-win32-1.7a.exe $WINEPREFIX/drive_c/Program\ Files/
 #invoke autohotkey script to install it
-try $WINE $WINEPREFIX/drive_c/Program\ Files/AutoHotKey/AutoHotKey.exe ./install_openwatcom.ahk
+try $WINE $WINEPREFIX/drive_c/Program\ Files/AutoHotKey/AutoHotkey104706_Install.exe ./install_openwatcom.ahk
