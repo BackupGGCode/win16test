@@ -34,8 +34,8 @@ try() {
 }
 
 #Unattended AHK installation
-download "http://www.autohotkey.com/download/AutoHotkey104701_Install.exe"
-try $WINE $WINETRICKS_CACHE/AutoHotkey104701_Install.exe /S 
+download "http://www.autohotkey.com/download/AutoHotkeyInstall.exe"
+try $WINE $WINETRICKS_CACHE/AutoHotkeyInstall.exe /S 
 
 #fetch openwatcom binary first
 download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.7a.exe"
