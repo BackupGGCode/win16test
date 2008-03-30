@@ -37,7 +37,7 @@ download "http://www.autohotkey.com/download/AutoHotkey104701_Install.exe"
 try $WINE $WINETRICKS_CACHE/AutoHotkey104701_Install.exe /S 
 
 #fetch openwatcom binary first
-download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.7.exe"
+download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.7a.exe"
 #save it to "Program Files"
 try cp $WINETRICKS_CACHE/open-watcom-c-win32-1.7.exe ~/.wine/drive_c/Program\ Files/
 #invoke autohotkey script to install it
