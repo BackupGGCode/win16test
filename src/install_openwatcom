@@ -1,6 +1,8 @@
 # The following functions are taken from winetricks written by Dan Kegel. 
 WINE=${WINE:-wine}
 WINETRICKS_CACHE=$HOME/winetrickscache
+test -d $WINETRICKS_CACHE || WINETRICKS_CACHE=$HOME/.winetrickscache
+
 mkdir -p $WINETRICKS_CACHE
 
 # Download a file
