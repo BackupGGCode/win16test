@@ -4,9 +4,9 @@
 ; Copyright 2007 Google, Jennifer Lai <jenlai@google.com>
 ;
 ; Script Function:
-; installing Open Watcom 1.7 to C:\WATCOM
+; installing Open Watcom 1.8 to C:\WATCOM
 
-Run, C:\Program Files\open-watcom-c-win32-1.7a.exe
+Run, C:\Program Files\open-watcom-c-win32-1.8.exe
 WinWait, Open Watcom C/C++, I &Agree
 IfWinNotActive, Open Watcom C/C++, I &Agree, WinActivate, Open Watcom C/C++, I &Agree
 WinWaitActive, Open Watcom C/C++, I &Agree

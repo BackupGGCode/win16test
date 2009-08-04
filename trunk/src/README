@@ -61,7 +61,7 @@ soure tree is noted in a comment at the top of each file.
 ================= Running Tests Under Windows ====================
 
 1. Install OpenWatcom ( *Full* Installation ) from
-	http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.7.exe
+	http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.8.exe
 2. To build the tests, cd into the test directory, and run
 	win16-tests-build.bat
 3. To run the tests, run
