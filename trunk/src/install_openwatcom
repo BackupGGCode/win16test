@@ -1,3 +1,4 @@
+#!/bin/sh
 # The following functions are taken from winetricks written by Dan Kegel. 
 WINE=${WINE:-wine}
 WINETRICKS_CACHE=$HOME/winetrickscache
@@ -5,6 +6,18 @@ test -d $WINETRICKS_CACHE || WINETRICKS_CACHE=$HOME/.winetrickscache
 WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
 
 mkdir -p $WINETRICKS_CACHE
+
+if [ ! -x "`which "wget"`" ]
+then
+    echo "wget not found. Needed to download files."
+    exit 1
+fi
+
+if [ ! -x "`which "sha1sum"`" ]
+then
+    echo "sha1sum not found. Needed to checksum files."
+    exit 1
+fi
 
 # Download a file
 download() {
@@ -33,12 +46,15 @@ try() {
     fi
 }
 
+# Start with a clean install:
+rm -rf $WINEPREFIX
+
 #Unattended AHK installation
-download "http://www.autohotkey.com/download/AutoHotkey104706_Install.exe"
+download "http://www.autohotkey.com/download/AutoHotkey104706_Install.exe" 3d3d8845473dea477d6983d063f0afc9999d880f
 try $WINE $WINETRICKS_CACHE/AutoHotkey104706_Install.exe /S 
 
 #fetch openwatcom binary first
-download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.8.exe"
+download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.8.exe" 44afd1fabfdf0374f614f054824e60ac560f9dc0
 #save it to "Program Files"
 try cp $WINETRICKS_CACHE/open-watcom-c-win32-1.8.exe $WINEPREFIX/drive_c/Program\ Files/
 #invoke autohotkey script to install it
