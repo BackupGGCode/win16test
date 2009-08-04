@@ -38,8 +38,8 @@ download "http://www.autohotkey.com/download/AutoHotkey104706_Install.exe"
 try $WINE $WINETRICKS_CACHE/AutoHotkey104706_Install.exe /S 
 
 #fetch openwatcom binary first
-download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.7a.exe"
+download "http://ftp.openwatcom.org/ftp/open-watcom-c-win32-1.8.exe"
 #save it to "Program Files"
-try cp $WINETRICKS_CACHE/open-watcom-c-win32-1.7a.exe $WINEPREFIX/drive_c/Program\ Files/
+try cp $WINETRICKS_CACHE/open-watcom-c-win32-1.8.exe $WINEPREFIX/drive_c/Program\ Files/
 #invoke autohotkey script to install it
 try $WINE $WINEPREFIX/drive_c/Program\ Files/AutoHotKey/AutoHotkey.exe ./install_openwatcom.ahk
