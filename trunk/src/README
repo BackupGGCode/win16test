@@ -19,10 +19,13 @@ soure tree is noted in a comment at the top of each file.
 	If that fails, modify your PATH, perhaps in .bashrc, with a line like:
 	$ PATH=/the/path/to/your/wine:$PATH
 
-2. If you don't have Open Watcom currently installed, do
+2. If you don't have Open Watcom currently installed, do either
 	$ sh install_openwatcom
-	This will do an unattended full installation for you.
-	No mouse click is necessary as the script will do it for you.
+or, if you prefer winetricks,
+	$ wget http://kegel.com/wine/winetricks
+	$ sh winetricks openwatcom
+and it prompts you, choose 'full install'.  (Don't use
+winetricks -q openwatcom; it doesn't install 16 bit compilers!)
 
 3.  Build and run the tests:
 	$ make all
