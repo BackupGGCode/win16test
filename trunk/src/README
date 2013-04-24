@@ -23,7 +23,7 @@ soure tree is noted in a comment at the top of each file.
 	$ sh install_openwatcom
 or, if you prefer winetricks,
 	$ wget http://kegel.com/wine/winetricks
-	$ sh winetricks openwatcom
+	$ sh winetricks --no-isolate openwatcom
 and it prompts you, choose 'full install'.  (Don't use
 winetricks -q openwatcom; it doesn't install 16 bit compilers!)
 
